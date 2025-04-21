@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Fjalla+One&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  
+  background: url(bgimg.jpg);
+  background-size: cover;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo img{
+    height:45px ;
+    width:175px ;
+}
+.menu-btn img{
+    height:35px ;
+    width: 35px;
+}
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  z-index: 999;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideDown 0.8s ease-in-out;
+}
+.nav-links a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 10px;
+  border-radius: 5px;
+  transition: all 0.5s, transform 0.2s;
+  font-weight:700 ;
+}
+
+.nav-links a:hover {
+  color:rgb(80, 80, 80) ;
+  transform: scale(1.05);
+}
+.navbar-search {
+ flex: 1;
+ display: flex;
+ padding-right: 100px;
+ margin-right: 250px;
+}
+.navbar-search select,
+.navbar-search input,
+.navbar-search button {
+ padding: 10px;
+ border: none;
+}
+.navbar-search select {
+ background: #f3f3f3;
+ color: #0b0000;
+}
+.navbar-search input {
+ flex: 1;
+}
+.navbar-links {
+ display: flex;
+ gap: 20px;
+ align-items: center;
+}
+.navbar-search {
+flex-basis: 100%;
+max-width: 700px;
+}
+
+.navbar-links div {
+ cursor: pointer;
+ font-size: 14px;
+}
+/*Container */
+.container1{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    gap: 10px;
+    cursor: pointer;
+    justify-content: space-around;
+    transition: all 0.5s ease-out;
+    padding-top: 120px;
+  }
+  .box_a{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    height:500px;
+    width:1345px;
+    border-radius: 8px;
+    transition: all 0.5s ease-in;
+  }
+  .box_a:hover{
+    animation-duration: 0.2s;
+    background-color: #f4f4f4be;
+  }
+.slider {
+    height:500px;
+    width:1345px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      align-self: center;
+    }
+
+    .slides {
+      width: 500%;
+      height: 100%;
+      display: flex;
+      animation: slide 20s infinite;
+    }
+
+    .slides input {
+      display: none;
+    }
+
+    .slide {
+      width: 20%;
+      transition: 0.6s;
+      position: relative;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease, filter 0.6s ease;
+      height: 500px;
+      width: 500px;
+      
+      object-fit: contain;
+      overflow: hidden;
+    }
+
+    .slide::before {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.3), transparent);
+      transition: top 0.5s ease;
+      pointer-events: none;
+    }
+
+    .slide:hover img {
+      transform: scale(1.1) rotate(1.5deg);
+      filter: brightness(1.2);
+    }
+
+    .slide:hover::before {
+      top: 0;
+    }
+
+    .navigation-manual {
+      position: absolute;
+      width: 100%;
+      margin-top: -40px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .manual-btn {
+      border: 2px solid #fff;
+      padding: 5px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .manual-btn:hover {
+      background: #fff;
+    }
+
+    #radio1:checked ~ .first {
+      margin-left: 0;
+    }
+    #radio2:checked ~ .first {
+      margin-left: -100%;
+    }
+    #radio3:checked ~ .first {
+      margin-left: -200%;
+    }
+    #radio4:checked ~ .first {
+      margin-left: -300%;
+    }
+    #radio5:checked ~ .first {
+      margin-left: -400%;
+    }
+
+    @keyframes slide {
+      0% {margin-left: 0;}
+      20% {margin-left: 0;}
+      25% {margin-left: -100%;}
+      45% {margin-left: -100%;}
+      50% {margin-left: -200%;}
+      70% {margin-left: -200%;}
+      75% {margin-left: -300%;}
+      95% {margin-left: -300%;}
+      100% {margin-left: -400%;}
+    }
+  .container2 {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+    
+  }
+  .left {
+    gap: 10px;
+    width:700px;
+  }
+  .box{
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    color: white;
+    border-radius: 8px;
+    margin : 10px;
+    height:300px;
+    gap: 10px;
+    transition: all 0.5s ease-out;
+      }
+      .box:hover{
+        animation-duration: 0.2s;
+        background-color: #f4f4f4be;
+      }
+      .right {
+      background-color:rgb(251, 251, 251);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      width: 650px;
+      gap: 10px;
+      transition: all 0.5s linear;
+      }
+      .right:hover{
+       
+       animation-duration: 0.2s;
+       background-color: #f4f4f4be;
+       
+      }
+      .container3 {
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 20px;
+      gap: 10px;
+      cursor: pointer;
+      justify-content: space-around;
+      transition: all 0.5s ease-out;
+     }
+      
+      .box1{
+      display: flex;
+      flex-direction: row;
+      background-color: white;
+      height:400px;
+      width:320px;
+      border-radius: 8px;
+      transition: all 0.5s ease-in;
+      }
+      .box2{
+      display: flex;
+      flex-direction: row;
+      background-color: white;
+      height:400px;
+      width:320px;
+      border-radius: 8px;
+      transition: all 0.5s ease-in;
+      }
+      .box3{
+      display: flex;
+      flex-direction: row;
+      background-color: white;
+      height:400px;
+      width:320px;
+      border-radius: 8px;
+      transition: all 0.5s ease-in;
+      }
+      .box4{
+      display: flex;
+      flex-direction: row;
+      background-color: white;
+      height:400px;
+      width:320px;
+      border-radius: 8px;
+      transition: all 0.5s ease-in;
+      }
+      .box1:hover{
+      animation-duration: 0.2s;
+       background-color: #f4f4f4be;
+       height: 405px;
+       width:325px;
+      }
+      .box2:hover{
+        animation-duration: 0.2s;
+        background-color: #f4f4f4be;
+       
+       height: 405px;
+       width:325px;
+      }
+      .box3:hover{
+      animation-duration: 0.2s;
+      background-color: #f4f4f4be;
+      height: 405px;
+      width:325px;
+      }
+      .box4:hover{
+      animation-duration: 0.2s;
+      background-color: #f4f4f4be;
+      height: 405px;
+      width:325px;
+      }
+      .container4{
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 20px;
+      gap: 10px;
+      cursor: pointer;
+      justify-content: space-around;
+      transition: all 0.5s ease-out;
+      }
+      .box_b{
+      display: flex;
+      flex-direction: row;
+      background-color: white;
+      height:250px;
+      width:1345px;
+      border-radius: 8px;
+      transition: all 0.5s ease-in;
+      }
+      .box_b:hover{
+       
+       animation-duration: 0.2s;
+       background-color: #f4f4f4be;
+       
+      }
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* Hide the checkbox */
+    #menu-toggle {
+      display: none;
+    }
+
+    /* Style the button (hamburger icon) */
+    .menu-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 30px;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    /* Sidebar styles */
+    .side-menu {
+      position: fixed;
+      right: -250px;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #333;
+      color: white;
+      padding-top: 60px;
+      transition:right 0.3s ease;
+    }
+
+    .side-menu a {
+      display: block;
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .side-menu a:hover {
+      background-color: #575757;
+    }
+
+    /* When checkbox is checked, show the menu */
+    #menu-toggle:checked ~ .side-menu {
+      right: 0;
+    }
+    
+  .card1 {
+  box-sizing: border-box;
+  width: 190px;
+  height: 254px;
+  background: rgba(217, 217, 217, 0.58);
+  border: 1px solid white;
+  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6px);
+  border-radius: 17px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s;
+  
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-weight: bolder;
+  color: black;
+  align-self: center;
+  margin-left: 20px;
+}
+.card1 img{
+  width: 150px;
+  height:150px;
+  object-fit: contain;
+  margin-top: 10px;
+}
+.card1 h4{
+font-size: 15px;
+margin-right: 75px;
+margin-top: 10px;
+}
+.card1-footer h5{
+margin-right:35px ;
+font-size: 15px;
+margin-top: 10px;
+
+}
+
+.card1-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  border-top: 1px solid #ddd;
+  padding: 1px;
+}
+.card1:hover {
+  border: 1px solid black;
+  transform: scale(1.05);
+}
+
+.card1:active {
+  transform: scale(0.95) rotateZ(1.7deg);
+}
+    svg {
+ width: 20px;
+ height: 20px;
+}
+
+/*Button*/
+.card-button {
+ border: 1px solid #252525;
+ display: flex;
+ padding: .3em;
+ cursor: pointer;
+ border-radius: 50px;
+ transition: .3s ease-in-out;
+}
+
+.card-button:hover {
+ border: 1px solid #ffffff;
+ background-color: #ffffff;
+}
+.card2{
+  box-sizing: border-box;
+  width: 190px;
+  height: 254px;
+  background: rgba(217, 217, 217, 0.58);
+  border: 1px solid white;
+  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6px);
+  border-radius: 17px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s;
+  
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-weight: bolder;
+  color: black;
+  align-self: center;
+  margin-left: 20px;
+}
+.card2 img{
+  width: 150px;
+  height:150px;
+  object-fit: contain;
+  margin-top: 10px;
+}
+.card2 h4{
+font-size: 15px;
+margin-right: 75px;
+margin-top: 10px;
+}
+.card2:hover {
+  border: 1px solid black;
+  transform: scale(1.05);
+}
+.card2-footer h5{
+
+font-size: 15px;
+margin-top: 10px;
+
+}
+
+.card2-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  border-top: 1px solid #ddd;
+  padding: 1px;
+}
+.card2:active {
+  transform: scale(0.95) rotateZ(1.7deg);
+}
+    /* Responsive Styles */
+    @media screen and (max-width: 768px) {
+      .wear {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo" style="color:rgb(255, 255, 255); font-size:20px;"><a href="index.html"><img src="logo text.PNG"></a></div>
+    <div class="navbar-search">
+      <select>
+        <option>All</option>
+        <option>T-shirt</option>
+        <option>Hoodie</option>
+        <option>Cargo</option>
+      </select>
+      <input type="text" placeholder="Search for products">
+    </div>
+     <!-- Hidden checkbox toggle -->
+  <input type="checkbox" id="menu-toggle">
+
+  <!-- Label acts as the button -->
+  <label for="menu-toggle" class="menu-btn"><img src="icons8-menu-bar-24.png" alt=""></label>
+
+  <!-- The side menu -->
+  <div class="side-menu">
+    <a href="#">Profile</a>
+    <a href="#">Categories</a>
+    <a href="#">My orders</a>
+    <a href="#">Log out</a>
+  </div>
+  </div>
+  <div class="container1">
+    <div class="box_a">
+
+
+  <div class="slider">
+    <div class="slides">
+      <!-- Radio buttons for manual nav -->
+      <input type="radio" name="radio-btn" id="radio1" checked>
+      <input type="radio" name="radio-btn" id="radio2">
+      <input type="radio" name="radio-btn" id="radio3">
+      <input type="radio" name="radio-btn" id="radio4">
+      <input type="radio" name="radio-btn" id="radio5">
+
+      <!-- Slides -->
+      <div class="slide first">
+        <img src="./images/luffy_back.png" alt="">
+      </div>
+      <div class="slide">
+        <img src="./images/naruto_front.png" alt="">
+      </div>
+      <div class="slide">
+        <img src="./images/gtr_back.png" alt="img1">
+      </div>
+      <div class="slide">
+        <img src="./images/gtr_front.png" alt="img2">
+      </div>
+      <div class="slide">
+        <img src="./images/luffy_front.png" alt="img3">
+      </div>
+
+      <!-- Manual navigation buttons -->
+      <div class="navigation-manual">
+        <label for="radio1" class="manual-btn"></label>
+        <label for="radio2" class="manual-btn"></label>
+        <label for="radio3" class="manual-btn"></label>
+        <label for="radio4" class="manual-btn"></label>
+        <label for="radio5" class="manual-btn"></label>
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+  </div>
+  <div class="container2">
+    <div class="left">
+      <div class="box">
+        <div class="card1">
+          <img src="./images/luffy_front.png" alt="">
+          <h4>Luffy T-shirt</h4>
+             <div class="card1-footer">
+              <h5>Under 499/-</h5>
+                <div class="card-button">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path d="M17.72,5.011H8.026c-0.271,0-0.49,0.219-0.49,0.489c0,0.271,0.219,0.489,0.49,0.489h8.962l-1.979,4.773H6.763L4.935,5.343C4.926,5.316,4.897,5.309,4.884,5.286c-0.011-0.024,0-0.051-0.017-0.074C4.833,5.166,4.025,4.081,2.33,3.908C2.068,3.883,1.822,4.075,1.795,4.344C1.767,4.612,1.962,4.853,2.231,4.88c1.143,0.118,1.703,0.738,1.808,0.866l1.91,5.661c0.066,0.199,0.252,0.333,0.463,0.333h8.924c0.116,0,0.22-0.053,0.308-0.128c0.027-0.023,0.042-0.048,0.063-0.076c0.026-0.034,0.063-0.058,0.08-0.099l2.384-5.75c0.062-0.151,0.046-0.323-0.045-0.458C18.036,5.092,17.883,5.011,17.72,5.011z"></path>
+                        <path d="M8.251,12.386c-1.023,0-1.856,0.834-1.856,1.856s0.833,1.853,1.856,1.853c1.021,0,1.853-0.83,1.853-1.853S9.273,12.386,8.251,12.386z M8.251,15.116c-0.484,0-0.877-0.393-0.877-0.874c0-0.484,0.394-0.878,0.877-0.878c0.482,0,0.875,0.394,0.875,0.878C9.126,14.724,8.733,15.116,8.251,15.116z"></path>
+                        <path d="M13.972,12.386c-1.022,0-1.855,0.834-1.855,1.856s0.833,1.853,1.855,1.853s1.854-0.83,1.854-1.853S14.994,12.386,13.972,12.386z M13.972,15.116c-0.484,0-0.878-0.393-0.878-0.874c0-0.484,0.394-0.878,0.878-0.878c0.482,0,0.875,0.394,0.875,0.878C14.847,14.724,14.454,15.116,13.972,15.116z"></path>
+                    </svg>
+                </div>
+              </div>
+        </div>
+        <div class="card2">
+          <img src="./images/luffy_front.png" alt="">
+          <h4>Luffy T-shirt</h4>
+             <div class="card2-footer">
+              <h5>Under 499/-</h5>
+                <div class="card-button">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path d="M17.72,5.011H8.026c-0.271,0-0.49,0.219-0.49,0.489c0,0.271,0.219,0.489,0.49,0.489h8.962l-1.979,4.773H6.763L4.935,5.343C4.926,5.316,4.897,5.309,4.884,5.286c-0.011-0.024,0-0.051-0.017-0.074C4.833,5.166,4.025,4.081,2.33,3.908C2.068,3.883,1.822,4.075,1.795,4.344C1.767,4.612,1.962,4.853,2.231,4.88c1.143,0.118,1.703,0.738,1.808,0.866l1.91,5.661c0.066,0.199,0.252,0.333,0.463,0.333h8.924c0.116,0,0.22-0.053,0.308-0.128c0.027-0.023,0.042-0.048,0.063-0.076c0.026-0.034,0.063-0.058,0.08-0.099l2.384-5.75c0.062-0.151,0.046-0.323-0.045-0.458C18.036,5.092,17.883,5.011,17.72,5.011z"></path>
+                        <path d="M8.251,12.386c-1.023,0-1.856,0.834-1.856,1.856s0.833,1.853,1.856,1.853c1.021,0,1.853-0.83,1.853-1.853S9.273,12.386,8.251,12.386z M8.251,15.116c-0.484,0-0.877-0.393-0.877-0.874c0-0.484,0.394-0.878,0.877-0.878c0.482,0,0.875,0.394,0.875,0.878C9.126,14.724,8.733,15.116,8.251,15.116z"></path>
+                        <path d="M13.972,12.386c-1.022,0-1.855,0.834-1.855,1.856s0.833,1.853,1.855,1.853s1.854-0.83,1.854-1.853S14.994,12.386,13.972,12.386z M13.972,15.116c-0.484,0-0.878-0.393-0.878-0.874c0-0.484,0.394-0.878,0.878-0.878c0.482,0,0.875,0.394,0.875,0.878C14.847,14.724,14.454,15.116,13.972,15.116z"></path>
+                    </svg>
+                </div>
+              </div>
+        </div>         
+      </div>
+      <div class="box">
+
+      </div>
+    </div>
+    <div class="right">
+      
+    </div>
+  </div>
+
+  <div class="container3">
+    <div class="box1">
+
+    </div>
+    <div class="box2">
+
+    </div>
+    <div class="box3">
+
+    </div>
+    <div class="box4">
+
+    </div>
+    
+  </div>
+  <div class="container4">
+    <div class="box_b">
+
+    </div>
+</body>
+</html>
